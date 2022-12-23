@@ -1,4 +1,4 @@
-﻿Set-ExecutionPolicy Unrestricted
+Set-ExecutionPolicy Unrestricted
 			
 cd C:\dp-203\data-engineering-ilt-deployment\Allfiles\00\artifacts\environment-setup\automation\
 
@@ -9,7 +9,27 @@ Import-Module "..\solliance-synapse-automation"
 # Paths
 $templatesPath = "..\templates"
 
-# Add Values from the first setup script here
+
+# Values from the first setup script here
+$selectedSub = ""
+$suffix = "vk9lzb6"
+$subscriptionId = ""
+$resourceGroupName = "data-engineering-synapse-vk9lzb6"
+$workspaceName = "asaworkspacevk9lzb6"
+$global:logindomain = ""
+$global:sqlEndpoint = "asaworkspacevk9lzb6.sql.azuresynapse.net"
+$global:sqlUser = "asa.sql.admin"
+$global:synapseToken = ""
+$global:synapseSQLToken = ""
+$global:managementToken = ""
+$global:powerbiToken = ""
+$global:tokenTimes = [ordered]@{
+        Synapse = (Get-Date -Year 1)
+        SynapseSQL = (Get-Date -Year 1)
+        Management = (Get-Date -Year 1)
+        PowerBI = (Get-Date -Year 1)
+}
+
 
 # User must sign in using az login
 Write-Host "Sign into Azure using your credentials.."
@@ -137,3 +157,4 @@ $SetupStep3Variables = "
 ((Get-Content -path .\dp-203-setup-Part03.ps1 -Raw) -replace '# Add Values from the second setup script here',"$SetupStep3Variables") | Set-Content -Path .\dp-203-setup-Part03.ps1
 
 $SetupStep3Variables
+

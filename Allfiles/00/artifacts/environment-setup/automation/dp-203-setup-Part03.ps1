@@ -1,4 +1,4 @@
-﻿Set-ExecutionPolicy Unrestricted
+Set-ExecutionPolicy Unrestricted
 			
 cd C:\dp-203\data-engineering-ilt-deployment\Allfiles\00\artifacts\environment-setup\automation\
 
@@ -12,7 +12,27 @@ $datasetsPath = "..\datasets"
 $dataflowsPath = "..\dataflows"
 $pipelinesPath = "..\pipelines"
 
-# Add Values from the first setup script here
+
+# Values from the first setup script here
+$selectedSub = ""
+$suffix = "vk9lzb6"
+$subscriptionId = ""
+$resourceGroupName = "data-engineering-synapse-vk9lzb6"
+$workspaceName = "asaworkspacevk9lzb6"
+$global:logindomain = ""
+$global:sqlEndpoint = "asaworkspacevk9lzb6.sql.azuresynapse.net"
+$global:sqlUser = "asa.sql.admin"
+$global:synapseToken = ""
+$global:synapseSQLToken = ""
+$global:managementToken = ""
+$global:powerbiToken = ""
+$global:tokenTimes = [ordered]@{
+        Synapse = (Get-Date -Year 1)
+        SynapseSQL = (Get-Date -Year 1)
+        Management = (Get-Date -Year 1)
+        PowerBI = (Get-Date -Year 1)
+}
+
 
 # Add Values from the second setup script here
 
@@ -139,3 +159,4 @@ Update-AzCosmosDBSqlContainer -ResourceGroupName $resourceGroupName `
         -PartitionKeyPath $container.Resource.PartitionKey.Paths
 
 Write-Host "Setup complete!"
+
